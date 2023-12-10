@@ -1,0 +1,20 @@
+.header{
+    height: 5vh;
+    width: 100vw;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-image: linear-gradient(to top right, #108DFC, #8F49FF);
+  }
+  
+  .header span a{
+    font-size: 20px;
+    font-weight: bold;
+    color: #FFF;
+    text-decoration: none;
+    transition: all .8s ease-in-out;
+  }
+  
+  .header span a:hover{
+    color: #4499FF;
+  }
