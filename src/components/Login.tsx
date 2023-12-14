@@ -1,8 +1,11 @@
 import {useState} from 'react'
+import {useRouter} from 'next/router'
 
 export default function Login(){
     const [email, setEmail] = useState<string>('')
     const [password, setPassword] = useState<string>('')
+    const [token, setToken] = useState<string>('')
+    const router = useRouter()
 
     const signIn = async(event:React.FormEvent<HTMLElement>) => {
         event.preventDefault()
@@ -20,8 +23,14 @@ export default function Login(){
 
             if(resposta.ok){
                 const dados = await resposta.json()
+                setToken(dados.token)
                 if(dados.podeLogar == true){
                     //redirecionar para painel principal
+                    localStorage.setItem('token', dados.token)
+                    if(localStorage.getItem('token')){
+                        console.log('Ok, redirecionando...')
+                        router.push('/MyPetshop')
+                    }
                 }
             }
         }catch(e){

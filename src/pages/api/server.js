@@ -1,5 +1,7 @@
 import express from 'express'
 import cors from 'cors'
+import jwt from 'jsonwebtoken'
+import crypto from 'crypto'
 
 import Database from './database/dbConfig.js'
 
@@ -29,14 +31,14 @@ app.post('/signup', (req, res)=>{
                 console.log(`O email: '${email}' já está está cadastrado!`)
                 res.status(200).send({
                     "msgServer":"O email já está cadastrado!",
-                    "userExists":"true"
+                    "userExists":true
                 })
             }else{
                 console.log(`O email: '${email}' pode ser cadastrado!`)
                 db.addUser(email, password)
                 res.status(200).send({
                     "msgServer":"O email pode ser cadastrado!",
-                    "userExists":"false"
+                    "userExists":false
                 })
                 db.allUsers()
             }
@@ -55,8 +57,10 @@ app.post('/signin', (req, res)=>{
             if(user){
                 db.loginUser(email, password, ()=>{
                     console.log('Logado')
+                    const token = gerarToken(email)
                     res.status(200).send({
-                        "podeLogar":"true"
+                        "podeLogar":true,
+                        "token":token
                     })
                 })
             }else{
@@ -64,8 +68,18 @@ app.post('/signin', (req, res)=>{
             }
         }
     })
-
-    res.status(200).send('Fim do tratamento da solicitação de login')
 })
 
 app.listen(PORT, ()=> console.log(`O servidor está rodando na porta ${PORT}`))
+
+const segredo = crypto.randomBytes(32).toString('hex')
+
+function gerarToken(user){
+    const payload = {
+        username: user.username
+    }
+
+    const token = jwt.sign(payload, segredo, {expiresIn: '1h'})
+
+    return token
+}
