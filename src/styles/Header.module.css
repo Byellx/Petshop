@@ -1,4 +1,4 @@
-.header{
+/*.header{
     height: 5vh;
     width: 100vw;
     display: flex;
@@ -17,4 +17,22 @@
   
   .header span a:hover{
     color: #4499FF;
+  }*/
+
+  .header{
+    height: 5vh;
+    width: 100vw;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-image: linear-gradient(to top right, #1E90FF, #1E90FF);
+    border-bottom: 3px solid #DCDCDC;
+  }
+  
+  .header span a{
+    font-size: 20px;
+    font-weight: bold;
+    color: #FFF;
+    text-decoration: none;
+    transition: all .8s ease-in-out;
   }

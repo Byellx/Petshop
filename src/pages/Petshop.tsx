@@ -1,6 +1,7 @@
 import Header from '@/components/Header'
 import Login from '@/components/Login'
 import Signup from '@/components/Signup'
+import styles from '@/styles/Petshop.module.css'
 
 import {useState} from 'react'
 
@@ -15,8 +16,8 @@ export default function Petshop(){
     return(
         <>
         <Header/>
-        <div className='FormPageBox'>
-            <div className='FormBox'>
+        <div className={styles.FormPageBox}>
+            <div className={styles.FormBox}>
                 {showLogin?(<Login/>):(<Signup setShowLogin={setShowLogin}/>)}
                 {
                     showLogin?(
@@ -26,7 +27,7 @@ export default function Petshop(){
                     )
                 }
             </div>
-            <div className='WallpaperBox'></div>
+            <div className={styles.WallpaperBox}></div>
         </div>
         </>
     )
