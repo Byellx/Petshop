@@ -53,18 +53,30 @@ app.post('/signin', (req, res)=>{
     db.findUser(email, (err, user)=> {
         if(err){
             console.error(`Erro ao buscar este usuário: ${err}`)
+            res.status(500).send('Erro buscando usuário')
         }else{
             if(user){
-                db.loginUser(email, password, ()=>{
-                    console.log('Logado')
-                    const token = gerarToken(email)
-                    res.status(200).send({
-                        "podeLogar":true,
-                        "token":token
-                    })
+                db.loginUser(email, password, (err, loginPermission)=>{
+                    if(err){
+                        console.error(`Erro ao consultar usuário: ${err}`)
+                        res.status(500).send('Erro ao tentar logar')
+                    }else{
+                        if(loginPermission){
+                            console.log('Logando...')
+                            const token = gerarToken(email)
+                            res.status(200).send({
+                                "podeLogar":true,
+                                "token":token
+                            })
+                        }else{
+                            console.error('Senha incorreta!')
+                            res.status(401).send('Credenciais inválidas')
+                        }
+                    }
                 })
             }else{
                 console.log('Usuário não existe!')
+                res.status(404).send('Usuário não existe!')
             }
         }
     })

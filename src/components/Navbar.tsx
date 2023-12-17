@@ -23,7 +23,7 @@ export default function Navbar(){
                 <section className={styles.logo}>
                     <div className={styles.menuBox}>
                         <div className={styles.menuIcon} onClick={openNavbar}></div>
-                        <span>Petshop</span>
+                        <span onClick={()=>router.push('/MyPetshop')}>Petshop</span>
                     </div>
                 </section>
 
@@ -31,7 +31,7 @@ export default function Navbar(){
                     <section className={styles.logo}>
                         <div className={styles.menuBox}>
                             <div className={styles.menuIcon} onClick={openNavbar}></div>
-                            <span>Petshop</span>
+                            <span onClick={()=>router.push('/MyPetshop')}>Petshop</span>
                         </div>
                     </section>
 
