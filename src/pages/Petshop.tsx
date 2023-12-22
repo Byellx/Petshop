@@ -4,13 +4,19 @@ import Signup from '@/components/Signup'
 import styles from '@/styles/Petshop.module.css'
 
 import {useState} from 'react'
+import { useRouter } from 'next/router'
 
 export default function Petshop(){
     const [showLogin, setShowLogin] = useState<boolean>(true)
+    const router = useRouter()
 
     const swapLogin = (event: React.MouseEvent<HTMLAnchorElement>):void => {
         event.preventDefault()
         setShowLogin(!showLogin)
+    }
+
+    if(localStorage.getItem('token')){
+        router.push('/MyPetshop')
     }
 
     return(

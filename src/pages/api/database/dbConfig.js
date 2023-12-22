@@ -12,6 +12,8 @@ export default class Database{
         })
     }
 
+    /* -- Operações com Usuários -- */
+
     allUsers(){
         const allUsersQuery = 'SELECT * FROM Users'
 
@@ -81,6 +83,16 @@ export default class Database{
             }
         })
     }
+
+    /* -- Operações com Pets -- */
+
+    allPets(){
+
+    }
+
+    
+
+    /* -- Operações Gerais -- */
 
     showTables(){
         const showTablesQuery = `SELECT name FROM sqlite_master WHERE type='table'`

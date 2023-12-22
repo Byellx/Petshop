@@ -1,4 +1,6 @@
 import React, {SetStateAction, useState} from 'react'
+import {ToastContainer, toast} from 'react-toastify'
+import 'react-toastify/ReactToastify.css'
 
 interface SignUpProps{
     setShowLogin: React.Dispatch<SetStateAction<boolean>>
@@ -9,6 +11,7 @@ export default function Signup({setShowLogin}:SignUpProps){
     const [password1, setPassword1] = useState<string>('')
     const [password2, setPassword2] = useState<string>('')
     const [resData, setResData] = useState<any>(null)
+    const notifySuccess = () => toast.success('Cadastrado com sucesso!')
 
     const signUp = async(event:React.FormEvent<HTMLElement>) => 
     {
@@ -38,8 +41,8 @@ export default function Signup({setShowLogin}:SignUpProps){
                     setPassword1('')
                     setPassword2('')
                 }else{
-                    alert('O usuário foi cadastrado com sucesso!')
-                    setShowLogin(true)
+                    notifySuccess()
+                    setTimeout(()=>setShowLogin(true), 3000)
                 }
             }else{
                 throw new Error('Falha ao enviar dados')
@@ -58,6 +61,7 @@ export default function Signup({setShowLogin}:SignUpProps){
                 <input value={password1} onChange={(e)=>setPassword1(e.target.value)} type='password' placeholder='Senha' required/>
                 <input value={password2} onChange={(e)=>setPassword2(e.target.value)} type='password' placeholder='Confirme a senha' required/>
                 <button type='submit'>Cadastrar</button>
+                <ToastContainer/>
             </form>
         </>
     )

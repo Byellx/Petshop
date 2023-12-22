@@ -1,0 +1,220 @@
+.bigBox{
+    width: 100vw;
+    height: 90vh;
+    display: flex;
+}
+
+.principal{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.extraInfo{
+    width: 25%;
+    height: 90%;
+    background-color: navy;
+    transition: all .4s ease-in-out;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+}
+
+.extraInfoHide{
+    width: 25%;
+    height: 90%;
+    border: 1px solid lightgreen;
+    background-color: navy;
+    transition: all .6s ease-in-out;
+    position: fixed;
+    bottom: 0;
+    right: -25vw;
+}
+
+.searchbox{
+    width: 100%;
+    height: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.searchbox div{
+    height: 100%;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.searchbox div select, .searchbox div input, .searchbox div button{
+    height: 40%;
+    outline: none;
+}
+
+.searchbox div input{
+    width: 60%;
+    border-left: none;
+    border-right: none;
+    border-top: 1px solid gainsboro;
+    border-bottom: 1px solid gainsboro;
+}
+
+.searchbox div button{
+    background-color: #0066CC;
+    border: none;
+    width: 20%;
+}
+
+.searchbox div select{
+    width: 20%;
+    border: 1px solid gainsboro;
+    background-color: #0066CC;
+}
+
+.tableBox{
+    width: 100%;
+    height: 75%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tableBox table{
+    width: 90%;
+    max-width: 90%;
+    height: 100%;
+    max-height: 100%;
+    border-collapse: collapse;
+    overflow-y: auto;
+}
+
+.tableBox table,
+.tableBox table thead tr,
+.tableBox table thead td,
+.tableBox table tbody tr,
+.tableBox table tbody td{
+    border: 1px solid black;
+}
+
+.tableBox table thead tr, .tableBox table tbody tr{
+    min-height: 160px;
+}
+
+.tableBox table thead{
+    background-color: #0066CC;
+}
+
+.tableBox table tbody tr:nth-child(odd){
+    background-color: lightblue;
+}
+
+.tableBox table tbody tr:nth-child(even){
+    background-color: lightcoral;
+}
+
+.addPet{
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.add{
+    width: 30px;
+    height: 30px;
+    background-image: url(../../public/icons8-adicionar-48.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.add:hover{
+    cursor: pointer;
+}
+
+.del{
+    width: 30px;
+    height: 30px;
+    background-image: url(../../public/icons8-menos-48.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.del:hover{
+    cursor: pointer;
+}
+
+.extraInfo div{
+    width: 30px;
+    height: 30px;
+    background-image: url(../../public/icons8-menos-48.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.addPetFormsBox{
+    height: 100%;
+    width: 100%;
+    background-color: rgb(0, 0, 0, 0.6);
+    position: fixed;
+}
+
+.addPetForms{
+    position: fixed;
+    top: 30vh;
+    left: 30vw;
+    height: 60%;
+    width: 40%;
+    background-color: #0066CC;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.addPetForms input{
+    height: 10%;
+    width: 90%;
+    outline: none;
+    border: 1px solid gainsboro;
+}
+
+.addPetForms button{
+    height: 10%;
+    width: 40%;
+    background-color: #1CFF66;
+    border: none;
+}
+
+.edit{
+    background-image: url(../../public/Images/Icons/icons8-sobre-50.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 30px;
+    height: 30px;
+}
+
+.petCard{
+    width: 100%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: left;
+    padding: 10px;
+}
+
+.extraInfo .excluir{
+    width: 30px;
+    height: 30px;
+    background-image: url(../../public/Images/Icons/icons8-lixo-50.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
