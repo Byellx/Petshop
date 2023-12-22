@@ -15,9 +15,9 @@ export default function Petshop(){
         setShowLogin(!showLogin)
     }
 
-    if(localStorage.getItem('token')){
+    /*if(localStorage.getItem('token')){
         router.push('/MyPetshop')
-    }
+    }*/
 
     return(
         <>
